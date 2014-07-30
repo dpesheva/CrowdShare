@@ -1,5 +1,5 @@
 ﻿define(['jquery', 'mustache', 'http-requester', 'url'], function ($, mustache, request, rootUrl) {
-    function loadMessages(/*elementId,*/ number) {
+    function loadMessages( number) {
         var partialData = [];
 
         request.getJSON(rootUrl + 'post')
@@ -22,7 +22,6 @@
                                 .html(templatedMessage);
                     messageList.append(messageItem);
                 }
-                // $(elementId).html(messageList);
                 $('#msg-container').html(messageList);
             }
             , function (err) {

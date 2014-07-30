@@ -32,6 +32,10 @@
                                  $('#main-content').html('');
                              });
 
+                             this.get('#/user/logout', function () {
+                                 this.redirect('#/user');
+                             });
+
                              this.get('#/user', function () {
                                  //if the user is logged -> logout and show Login screen
                                  if (users.isUserLoggedIn()) {
