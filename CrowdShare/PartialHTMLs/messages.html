@@ -1,8 +1,8 @@
 ﻿<form class="form-modal">
-    <label for="pattern">Enter text to filter the messages</label>
-    <input type="text" id="pattern" class="input-block-level" placeholder="text" />
+    <label for="pattern">Filter by text</label>
+    <input type="text" id="pattern" class="input-block-level" placeholder="Text" />
     <br />
-    <label for="user-id">Enter username to filter the messages</label>
+    <label for="user-id">Filter by username</label>
     <input type="text" id="user-id" class="input-block-level" placeholder="Username" />
     <br />
     <div class="row">
@@ -14,11 +14,49 @@
 </div>
 <div id="msg-container">
 </div>
-
+<!--
 <script id="msg-template" type="x-mustache-template">
     <strong>{{title}}: </strong>
     <strong class="username">{{user.username}}: </strong>
     <span>{{{body}}}</span>
     <span class="date">{{postDate}}</span>
+</script>-->
+<script id="msg-template" type="x-mustache-template">
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Title
+                </th>
+                <th>
+                    User
+                </th>
+                <th>
+                    Post
+                </th>
+                <th>
+                    Date
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#posts}}
+            <tr>
+                <td class ="name-cell">
+                    {{user.username}}
+                </td>
+                <td class="title-cell">
+                    {{title}}
+                </td>
+                <td class="text-cell">
+                    {{{body}}}
+                </td>
+                <td class="date-cell">
+                    {{postDate}}
+                </td>
+            </tr>
+            {{/posts}}
+        </tbody>
+    </table>
 </script>
 

@@ -2,6 +2,7 @@
 define(['jquery', 'users', 'menu'], function ($, users, menu) {
     function attachEventHandlers() {
         var wrapper = $('#main-content');
+        var header = $('#main-header');
 
         wrapper.on('click', '#login-form #btn-login', function () {
             var username = $('#tb-login-username').val();
@@ -39,7 +40,7 @@ define(['jquery', 'users', 'menu'], function ($, users, menu) {
             return false;
         });
 
-        wrapper.on('click', '#nav-btn-logout', function () {
+        header.on('click', '#nav-btn-logout', function () {
             users.logout(function () {
                 $('#main-content').find('p.error').remove();
                 menu.initialize();

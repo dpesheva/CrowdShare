@@ -4,6 +4,7 @@
 
 (function () {
 
+
     require.config({
         paths: {
             'jquery': 'libs/jquery-2.0.3.min',
@@ -21,8 +22,8 @@
         }
     })
 
-    require(['jquery', 'sammy', 'users', 'events', 'messages', 'url', 'menu'],
-                     function ($, sammy, users, events, messages, rootUrl, menu) {
+    require(['jquery', 'sammy', 'users', 'events', 'messages', 'menu'],
+                     function ($, sammy, users, events, messages,  menu) {
 
                          events.attachEventHandlers();
                          menu.initialize();
