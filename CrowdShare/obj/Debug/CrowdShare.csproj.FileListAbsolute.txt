@@ -1,0 +1,6 @@
+D:\Telerik\JS Applications\Exam\CrowdShare\CrowdShare\bin\CrowdShare.dll.config
+D:\Telerik\JS Applications\Exam\CrowdShare\CrowdShare\bin\CrowdShare.dll
+D:\Telerik\JS Applications\Exam\CrowdShare\CrowdShare\bin\CrowdShare.pdb
+D:\Telerik\JS Applications\Exam\CrowdShare\CrowdShare\obj\Debug\CrowdShare.csprojResolveAssemblyReference.cache
+D:\Telerik\JS Applications\Exam\CrowdShare\CrowdShare\obj\Debug\CrowdShare.dll
+D:\Telerik\JS Applications\Exam\CrowdShare\CrowdShare\obj\Debug\CrowdShare.pdb
