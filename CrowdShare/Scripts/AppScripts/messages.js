@@ -1,8 +1,8 @@
-﻿define(['jquery', 'mustache', 'http-requester'], function ($, mustache, request) {
-    function loadMessages(/*elementId,*/url, number) {
+﻿define(['jquery', 'mustache', 'http-requester', 'url'], function ($, mustache, request, rootUrl) {
+    function loadMessages(/*elementId,*/ number) {
         var partialData = [];
 
-        request.getJSON(url + 'post')
+        request.getJSON(rootUrl + 'post')
             .then(function (data) {
                 if (number) {
                     partialData = data.slice(number).reverse();
@@ -23,10 +23,10 @@
                     messageList.append(messageItem);
                 }
                 // $(elementId).html(messageList);
-                $('#main-content').html(messageList);
+                $('#msg-container').html(messageList);
             }
             , function (err) {
-                $('#main-content').html(err);
+                $('#msg-container').html(err);
             })
     }
 

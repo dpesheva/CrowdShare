@@ -1,8 +1,7 @@
-﻿define(['jquery', 'sha1'], function ($, sha1) {
+﻿define(['jquery', 'sha1', 'url', 'http-requester'], function ($, sha1, rootUrl, httpRequester) {
 
     var nickname = localStorage.getItem('nickname');
     var sessionKey = localStorage.getItem('sessionKey');
-   // var rootUrl = 'http://localhost:3000/';
 
     function saveUserData(data) {
         localStorage.setItem('nickname', data.nickname);
@@ -24,7 +23,7 @@
         return (n && sk) === true;
     }
 
-    function register(user, rootUrl, success, error) {
+    function register(user, success, error) {
         var url = rootUrl + 'user';
         var userData = {
             username: user.username,
@@ -32,33 +31,34 @@
             authCode: CryptoJS.SHA1(user.username + user.password).toString()
         };
 
-        httpRequester.post(url, userData, function (data) {
+        httpRequester.postJSON(url, userData, function (data) {
             saveUserData(data);
+            console.log('register result'+ data);  //REMOVE
             success()
         }, function (err) {
             error(err.responseJSON.Message);
         });
     }
 
-    function login(user, rootUrl, success, error) {
+    function login(user, success, error) {
         var url = rootUrl + 'auth';
         var userData = {
             username: user.username,
             authCode: CryptoJS.SHA1(user.username + user.password).toString()
         };
 
-        httpRequester.post(url, userData, function (data) {
+        httpRequester.postJSON(url, userData, function (data) {
             saveUserData(data);
+            console.log('login result' + data);  //REMOVE
             success()
         }, function (err) {
             error(err.responseJSON.Message);
         });
     }
 
-    function logout(rootUrl, success, error) {
-        //  var url = this.rootUrl + 'user/' + sessionKey;
+    function logout(success, error) {
         var url = rootUrl + 'user';
-        httpRequester.put(url, function () {
+        httpRequester.putJSON(url, function () {
             removeUserData();
             success();
         }, function (err) {

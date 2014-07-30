@@ -389,8 +389,10 @@
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\AppScripts\eventHandlers.js" />
     <Content Include="Scripts\AppScripts\messages.js" />
+    <Content Include="Scripts\AppScripts\url.js" />
     <Content Include="Scripts\AppScripts\users.js" />
     <Content Include="Scripts\libs\http-requester.js" />
+    <Content Include="Scripts\libs\jquery-2.0.3.js" />
     <Content Include="Scripts\libs\jquery-2.0.3.min.js" />
     <Content Include="Scripts\libs\mustache.js" />
     <Content Include="Scripts\libs\require.js" />
@@ -398,6 +400,7 @@
     <Content Include="Scripts\libs\sammy-0.7.4.js" />
     <Content Include="Scripts\libs\sha1.js" />
     <Content Include="Scripts\libs\underscore-min.js" />
+    <Content Include="Styles\main.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

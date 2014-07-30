@@ -16,13 +16,12 @@
             'users': 'AppScripts/users',
             'events': 'AppScripts/eventHandlers',
             'messages': 'AppScripts/messages',
+            'url': 'AppScripts/url'
         }
     })
 
-    require(['jquery', 'sammy', 'http-requester', 'users', 'events', 'messages'],
-                     function ($, sammy, request, users, events, messages) {
-
-                         var rootUrl = 'http://jsapps.bgcoder.com/';
+    require(['jquery', 'sammy', 'http-requester', 'users', 'events', 'messages', 'url'],
+                     function ($, sammy, request, users, events, messages, rootUrl) {
 
                          events.attachEventHandlers();
 
@@ -32,14 +31,8 @@
                              });
 
                              this.get('#/user', function () {
-                                 //if the user is logged -> logout and how Login screen
+                                 //if the user is logged -> logout and show Login screen
                                  if (users.isUserLoggedIn()) {
-                                     users.logout(rootUrl,
-                                         function () {
-                                             $('#profile').find('p.error').remove();
-                                         }, function (message) {
-                                             $('<p>').addClass('error').text(message);
-                                         });
                                      this.partial('PartialHTMLs/login.html');
                                  } else {
                                      this.partial('PartialHTMLs/register.html');
@@ -49,26 +42,14 @@
 
                              this.get('#/auth', function () {
                                  this.partial('PartialHTMLs/login.html');
-                                 var username = $('#tb-login-username').val();
-                                 var password = $('#tb-login-password').val();
-                                 var user = {
-                                     username: username,
-                                     password: password
-                                 };
 
-                                 users.login(user, rootUrl, function () {
-                                     //TODO show Logout button
-                                     $('#login-form').find('p.error').remove();
-                                 }, function (message) {
-                                     $('<p>').addClass('error').text(message);
-                                 });
                              });
 
                              this.get('#/post', function () {
                                  this.partial('PartialHTMLs/messages.html');
-                                 messages.loadMessages(rootUrl);
+                                 messages.loadMessages();
 
-                                 //POST reg to create a new post
+                                 //POST req to create a new post
                                  //or
                                  //Get to get all/filltered posts from the server
                              });

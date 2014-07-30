@@ -1,9 +1,22 @@
-﻿<div id="loading">
+﻿<form class="form-modal">
+    <label for="pattern">Enter text to filter the messages</label>
+    <input type="text" id="pattern" class="input-block-level" placeholder="text" />
+    <br />
+    <label for="user-id">Enter username to filter the messages</label>
+    <input type="text" id="user-id" class="input-block-level" placeholder="Username" />
+    <br />
+    <button id="btn-filter" class="btn btn-primary">Filter</button>
+</form>
+<div id="loading">
     Loading...
 </div>
+<div id="msg-container">
+</div>
+
 <script id="msg-template" type="x-mustache-template">
     <strong>{{title}}: </strong>
     <strong class="username">{{user.username}}: </strong>
     <span>{{{body}}}</span>
     <span class="date">{{postDate}}</span>
 </script>
+
