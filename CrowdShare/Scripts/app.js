@@ -12,18 +12,20 @@
             'rsvp': 'libs/rsvp.min',
             'sha1': 'libs/sha1',
             'underscore': 'libs/underscore-min',
-            'http-requester': 'libs/http-requester',
-            'users': 'AppScripts/users',
-            'events': 'AppScripts/eventHandlers',
-            'messages': 'AppScripts/messages',
-            'url': 'AppScripts/url'
+            'users': 'AppScripts/Control/users',
+            'events': 'AppScripts/Control/eventHandlers',
+            'menu': 'AppScripts/UI/menu',
+            'messages': 'AppScripts/AccessRestAPI/messages',
+            'http-requester': 'AppScripts/AccessRestAPI/http-requester',
+            'url': 'AppScripts/AccessRestAPI/url'
         }
     })
 
-    require(['jquery', 'sammy', 'http-requester', 'users', 'events', 'messages', 'url'],
-                     function ($, sammy, request, users, events, messages, rootUrl) {
+    require(['jquery', 'sammy', 'users', 'events', 'messages', 'url', 'menu'],
+                     function ($, sammy, users, events, messages, rootUrl, menu) {
 
                          events.attachEventHandlers();
+                         menu.initialize();
 
                          var app = sammy('#main-content', function () {
                              this.get('#/', function () {

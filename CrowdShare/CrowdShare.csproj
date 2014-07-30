@@ -154,6 +154,7 @@
     <Content Include="crowd-share-rest-api\node_modules\express\package.json" />
     <Content Include="crowd-share-rest-api\node_modules\express\Readme.md" />
     <Content Include="crowd-share-rest-api\package.json" />
+    <Content Include="Scripts\AppScripts\UI\menu.js" />
     <Content Include="Scripts\libs\jquery-2.0.3.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -387,11 +388,11 @@
     <Content Include="PartialHTMLs\messages.html" />
     <Content Include="PartialHTMLs\register.html" />
     <Content Include="Scripts\app.js" />
-    <Content Include="Scripts\AppScripts\eventHandlers.js" />
-    <Content Include="Scripts\AppScripts\messages.js" />
-    <Content Include="Scripts\AppScripts\url.js" />
-    <Content Include="Scripts\AppScripts\users.js" />
-    <Content Include="Scripts\libs\http-requester.js" />
+    <Content Include="Scripts\AppScripts\Control\eventHandlers.js" />
+    <Content Include="Scripts\AppScripts\AccessRestAPI\messages.js" />
+    <Content Include="Scripts\AppScripts\AccessRestAPI\url.js" />
+    <Content Include="Scripts\AppScripts\Control\users.js" />
+    <Content Include="Scripts\AppScripts\AccessRestAPI\http-requester.js" />
     <Content Include="Scripts\libs\jquery-2.0.3.js" />
     <Content Include="Scripts\libs\jquery-2.0.3.min.js" />
     <Content Include="Scripts\libs\mustache.js" />
