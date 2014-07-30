@@ -15,7 +15,8 @@ define(['jquery', 'users', 'menu'], function ($, users, menu) {
                 $('#login-form').find('p.error').remove();
                 menu.loggedUser();
             }, function (message) {
-                $('<p>').addClass('error').text(message);
+                var errorTag = $('<p>').addClass('error').text(message);
+                $('#login-form').append(errorTag);
             });
 
             return false;
@@ -32,17 +33,19 @@ define(['jquery', 'users', 'menu'], function ($, users, menu) {
             users.register(user, function () {
                 $('#register-form').find('p.error').remove();
             }, function (message) {
-                $('<p>').addClass('error').text(message);
+                var errorTag = $('<p>').addClass('error').text(message);
+                $('#register-form').append(errorTag);
             });
             return false;
         });
 
         wrapper.on('click', '#nav-btn-logout', function () {
             users.logout(function () {
-                $('#profile').find('p.error').remove();
+                $('#main-content').find('p.error').remove();
                 menu.initialize();
             }, function (message) {
-                $('<p>').addClass('error').text(message);
+                var errorTag = $('<p>').addClass('error').text(message);
+                $('#main-content').append(errorTag);
             });
 
             return false;

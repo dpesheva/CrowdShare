@@ -33,10 +33,9 @@
         httpRequester.postJSON(url, userData)
             .then(function (data) {
                 saveUserData(data);
-                console.log('register result' + data);  //REMOVE
-                success()
+                 success()
             }, function (err) {
-                error(err.responseJSON.Message);
+                error(err.responseJSON.message);
             });
     }
 
@@ -50,10 +49,10 @@
         httpRequester.postJSON(url, userData)
             .then(function (data) {
                 saveUserData(data);
-                console.log('login result' + data);  //REMOVE
                 success()
             }, function (err) {
-                error(err.responseJSON.Message);
+                console.log(err.responseJSON.message);
+                error(err.responseJSON.message);
             });
     }
 
@@ -68,7 +67,7 @@
                 removeUserData();
                 success();
             }, function (err) {
-                error(err.responseJSON.Message);
+                error(err.responseJSON.message);
             });
     }
 
